@@ -1,5 +1,14 @@
 ﻿public class PlayerData
 {
+    private PlayerData player;
+
+    public PlayerData() {
+    }
+
+    public PlayerData(PlayerData player) {
+        this.player = player;
+    }
+
     public string Username { get; set; }
     public string Password { get; set; }
     public string PlayerFirstName { get; set; }
@@ -8,6 +17,7 @@
     public string PlayerClass { get; set; }
     public int PlayerLevel { get; set; }
     public int PlayerXP { get; set; }
+    public int PlayerHealth { get; set; }
     public int PlayerStrMod { get; set; }
     public int PlayerDexMod { get; set; }
     public int PlayerConMod { get; set; }

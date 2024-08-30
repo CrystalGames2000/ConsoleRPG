@@ -1,12 +1,14 @@
-﻿class Tester
+﻿public static class Game
 {
-    static bool introSkip = false;
+    static bool introSkip = true;
     static bool skipRegister = false;
 
-    public static string connectionString = "Server=DESKTOP-V0MKS35;Database=CrystalGames;Integrated Security=True;";
     public static string raceStatModfier;
+
+    public static PlayerData player = new PlayerData();
     public static void Main(string[] args) {
-        var player = new PlayerData();
+
+
 
         #region Intro
         if (!introSkip) {
@@ -70,11 +72,6 @@
             //Recieves username
             Console.WriteLine("Please choose a username (8-20 Characters long): ");
             player.Username = Console.ReadLine();
-            do {
-                Console.Clear();
-                Console.WriteLine("Invalid username length, please retype: ");
-                player.Username = Console.ReadLine();
-            } while (!(player.Username.Replace(" ", "").Length >= 8 && player.Username.Replace(" ", "").Length <= 20) && !(player.Username.Length >= 8 && player.Username.Length <= 20));
             Console.Clear();
 
             //Recieves password
@@ -95,27 +92,24 @@
             //Recieves the player's race
             Console.WriteLine("Please pick a race:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman\n");
             player.PlayerRace = Console.ReadLine();
-            player.PlayerRace.ToUpper();
             Console.Clear();
-
-            //Handles Stat Modifiers depending on the player's race.
-            switch (player.PlayerRace) {
-                case ("dwarf"):
+            switch (player.PlayerRace.ToUpper()) {
+                case ("DWARF"):
                     player.PlayerConMod += 2;
                     player.PlayerWisMod += 2;
                     player.PlayerChaMod -= 2;
                     break;
-                case ("elf"):
+                case ("ELF"):
                     player.PlayerDexMod += 2;
                     player.PlayerConMod -= 2;
                     player.PlayerIntMod += 2;
                     break;
-                case ("gnome"):
+                case ("GNOME"):
                     player.PlayerStrMod -= 2;
                     player.PlayerConMod += 2;
                     player.PlayerChaMod += 2;
                     break;
-                case ("halfelf"):
+                case ("HALFELF"):
                     Console.WriteLine("Please pick a stat modifier:\nstr(ength)\ndex(terity)\ncon(stitution)\nint(elligence)\nwis(dom)\ncha(risma)");
                     raceStatModfier = Console.ReadLine();
                     raceStatModfier.ToUpper();
@@ -146,7 +140,7 @@
                     }
                     Console.Clear();
                     break;
-                case ("halforc"):
+                case ("HALFORC"):
                     Console.WriteLine("Please pick a stat modifier:\nstr(ength)\ndex(terity)\ncon(stitution)\nint(elligence)\nwis(dom)\ncha(risma)");
                     raceStatModfier = Console.ReadLine();
                     raceStatModfier.ToUpper();
@@ -177,12 +171,12 @@
                     }
                     Console.Clear();
                     break;
-                case ("halfling"):
+                case ("HALFLING"):
                     player.PlayerStrMod -= 2;
                     player.PlayerDexMod += 2;
                     player.PlayerChaMod += 2;
                     break;
-                case ("human"):
+                case ("HUMAN"):
                     Console.WriteLine("Please pick a stat modifier:\nstr(ength)\ndex(terity)\ncon(stitution)\nint(elligence)\nwis(dom)\ncha(risma)");
                     raceStatModfier = Console.ReadLine();
                     raceStatModfier.ToUpper();
@@ -214,61 +208,57 @@
                     Console.Clear();
                     break;
             }
+            Console.Clear();
 
             //Recieves the player's class
-
-            Console.WriteLine("Please pick a class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
+            Console.WriteLine("Please pick a class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard\n");
             player.PlayerClass = Console.ReadLine();
-            player.PlayerClass.ToUpper();
-            Thread.Sleep(2000);
-            switch (player.PlayerClass) {
+            switch (player.PlayerClass.ToUpper()) {
                 case ("BARBARIAN"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(12, 1, player.PlayerConMod);
                     break;
                 case ("BARD"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(8, 1, player.PlayerConMod);
                     break;
                 case ("CLERIC"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(8, 1, player.PlayerConMod);
                     break;
                 case ("DRUID"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(8, 1, player.PlayerConMod);
                     break;
                 case ("FIGHTER"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(10, 1, player.PlayerConMod);
                     break;
                 case ("MONK"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(8, 1, player.PlayerConMod);
                     break;
                 case ("PALADIN"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(10, 1, player.PlayerConMod);
                     break;
                 case ("RANGER"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(10, 1, player.PlayerConMod);
                     break;
                 case ("ROGUE"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(8, 1, player.PlayerConMod);
                     break;
                 case ("SORCERER"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(6, 1, player.PlayerConMod);
                     break;
                 case ("WIZARD"):
-                    Console.Clear();
+                    player.PlayerHealth = 1 + Dice.Roll(6, 1, player.PlayerConMod);
                     break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Invalid Class, Please Re-type Your Class: ");
-                    player.PlayerClass = Console.ReadLine();
-                    player.PlayerClass.ToUpper();
-                    break;
-            }
 
-            DataManager.UpdatePlayerStatistics(player);
+            }
+            Thread.Sleep(2000);
+            Console.Clear();
+
+            DataManager.RegisterNewPlayer(player);
             Console.WriteLine("Player successfully created");
         }
 
 
         #endregion
 
+        Encounter.EnemyEncounter(Enemies.boar);
     }
 }
