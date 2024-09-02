@@ -27,7 +27,12 @@ public static class DataManager
             PlayerCha = player.PlayerCha
         });
 
-        await using FileStream createStream = File.Create("ConsoleRPG/ConsoleRPG/Data/Players.json");
+        var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        var appFolder = Path.Combine(appData, "ConsoleRPG");
+        _ = Directory.CreateDirectory(appFolder);
+        var myFile = Path.Combine(appFolder, "Players.json");
+
+        await using FileStream createStream = File.Create(myFile);
         await JsonSerializer.SerializeAsync(createStream, players);
     }
 
