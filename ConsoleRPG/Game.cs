@@ -69,16 +69,6 @@
 
         #region Registration
         if (!skipRegister) {
-            //Recieves username
-            Console.WriteLine("Please choose a username (8-20 Characters long): ");
-            player.Username = Console.ReadLine();
-            Console.Clear();
-
-            //Recieves password
-            Console.WriteLine("Please choose a password: ");
-            player.Password = Console.ReadLine();
-            Console.Clear();
-
             //Recieves player's first name
             Console.WriteLine("Please choose your character's first name: ");
             player.PlayerFirstName = Console.ReadLine();
@@ -247,7 +237,6 @@
                 case ("WIZARD"):
                     player.PlayerHealth = 1 + Dice.Roll(6, 1, player.PlayerConMod);
                     break;
-
             }
             Thread.Sleep(2000);
             Console.Clear();

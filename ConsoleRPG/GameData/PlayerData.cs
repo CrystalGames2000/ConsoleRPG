@@ -1,16 +1,5 @@
 ﻿public class PlayerData
 {
-    private PlayerData player;
-
-    public PlayerData() {
-    }
-
-    public PlayerData(PlayerData player) {
-        this.player = player;
-    }
-
-    public string Username { get; set; }
-    public string Password { get; set; }
     public string PlayerFirstName { get; set; }
     public string PlayerLastName { get; set; }
     public string PlayerRace { get; set; }
@@ -30,4 +19,13 @@
     public int PlayerInt { get; set; }
     public int PlayerWis { get; set; }
     public int PlayerCha { get; set; }
+
+    private PlayerData player;
+
+    public PlayerData() {
+    }
+
+    public PlayerData(PlayerData player) {
+        this.player = player;
+    }
 }
