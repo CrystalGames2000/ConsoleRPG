@@ -59,16 +59,13 @@
 
         #endregion
 
-        /*Ask to register
-        string logPass = Console.ReadLine();
-        do {
-            Console.WriteLine("New Account? [y/n]");
-            logPass = Console.ReadLine();
-        } while (logPass.ToLower() != "y" || logPass.ToLower() != "n");
-        */
+        RegisterPlayer();
+    }
 
-        #region Registration
-        if (!skipRegister) {
+    static void RegisterPlayer()
+    {
+        if (!skipRegister)
+        {
             //Recieves player's first name
             Console.WriteLine("Please choose your character's first name: ");
             player.PlayerFirstName = Console.ReadLine();
@@ -83,7 +80,8 @@
             Console.WriteLine("Please pick a race:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman\n");
             player.PlayerRace = Console.ReadLine();
             Console.Clear();
-            switch (player.PlayerRace.ToUpper()) {
+            switch (player.PlayerRace.ToUpper())
+            {
                 case ("DWARF"):
                     player.PlayerConMod += 2;
                     player.PlayerWisMod += 2;
@@ -103,7 +101,8 @@
                     Console.WriteLine("Please pick a stat modifier:\nstr(ength)\ndex(terity)\ncon(stitution)\nint(elligence)\nwis(dom)\ncha(risma)");
                     raceStatModfier = Console.ReadLine();
                     raceStatModfier.ToUpper();
-                    switch (raceStatModfier) {
+                    switch (raceStatModfier)
+                    {
                         case ("str"):
                             player.PlayerStrMod += 2;
                             break;
@@ -134,7 +133,8 @@
                     Console.WriteLine("Please pick a stat modifier:\nstr(ength)\ndex(terity)\ncon(stitution)\nint(elligence)\nwis(dom)\ncha(risma)");
                     raceStatModfier = Console.ReadLine();
                     raceStatModfier.ToUpper();
-                    switch (raceStatModfier) {
+                    switch (raceStatModfier)
+                    {
                         case ("str"):
                             player.PlayerStrMod += 2;
                             break;
@@ -170,7 +170,8 @@
                     Console.WriteLine("Please pick a stat modifier:\nstr(ength)\ndex(terity)\ncon(stitution)\nint(elligence)\nwis(dom)\ncha(risma)");
                     raceStatModfier = Console.ReadLine();
                     raceStatModfier.ToUpper();
-                    switch (raceStatModfier) {
+                    switch (raceStatModfier)
+                    {
                         case ("str"):
                             player.PlayerStrMod += 2;
                             break;
@@ -203,6 +204,34 @@
             //Recieves the player's class
             Console.WriteLine("Please pick a class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard\n");
             player.PlayerClass = Console.ReadLine();
+            Console.Clear();
+
+            Console.WriteLine("Generating Ability Scores...");
+            Thread.Sleep(1250);
+            int abilityScores = GenerateAbilityScores();
+
+            while(abilityScores > 0) {
+                Console.WriteLine($"You now have {abilityScores} Points");
+                Console.WriteLine("Please type the amount of ability scores you would like\nto increase, separated by a comma (Please avoid\nusing spaces), using this order:\nStrength\nDexterity\nConstitution\nIntelligence\nWisdom\nCharisma\n");
+                string abiliyScoreMod = Console.ReadLine();
+                string[] scoreModArrStr = abiliyScoreMod.Split(",");
+                int[] scoreModArr = Array.ConvertAll(scoreModArrStr, int.Parse);
+                player.PlayerStrMod += scoreModArr[0];
+                abilityScores -= scoreModArr[0];
+                player.PlayerDexMod += scoreModArr[1];
+                abilityScores -= scoreModArr[1];
+                player.PlayerConMod += scoreModArr[2];
+                abilityScores -= scoreModArr[2];
+                player.PlayerIntMod += scoreModArr[3];
+                abilityScores -= scoreModArr[3];
+                player.PlayerWisMod += scoreModArr[4];
+                abilityScores -= scoreModArr[4];
+                player.PlayerChaMod += scoreModArr[5];
+                abilityScores -= scoreModArr[5];
+            }
+
+
+            //Handles Health Management
             switch (player.PlayerClass.ToUpper()) {
                 case ("BARBARIAN"):
                     player.PlayerHealth = 1 + Dice.Roll(12, 1, player.PlayerConMod);
@@ -238,16 +267,31 @@
                     player.PlayerHealth = 1 + Dice.Roll(6, 1, player.PlayerConMod);
                     break;
             }
-            Thread.Sleep(2000);
+
+            Console.Clear();
+            Console.WriteLine("Saving Data");
+            Thread.Sleep(Dice.Roll(500, 2, 1000));
+            Console.Write(".");
+            Thread.Sleep(Dice.Roll(500, 2, 1000));
+            Console.Write(".");
+            Thread.Sleep(Dice.Roll(500, 2, 1000));
+            Console.Write(".");
+            Thread.Sleep(Dice.Roll(500, 2, 1000));
             Console.Clear();
 
             DataManager.RegisterNewPlayer(player);
             Console.WriteLine("Player successfully created");
         }
+    }
 
+    static int GenerateAbilityScores()
+    {
+        int[] rolls = new int[4];
+        for (int i = 0; i < 4; i++) {
+            rolls[i] = Dice.Roll(6);
+        }
+        Array.Sort(rolls);
 
-        #endregion
-
-        Encounter.EnemyEncounter(Enemies.boar);
+        return rolls[0] + rolls[1] + rolls[2];
     }
 }
