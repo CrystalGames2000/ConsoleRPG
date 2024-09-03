@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 public static class DataManager
 {
@@ -27,13 +28,13 @@ public static class DataManager
             PlayerCha = player.PlayerCha
         });
 
-        var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        var appFolder = Path.Combine(appData, "ConsoleRPG");
-        _ = Directory.CreateDirectory(appFolder);
-        var myFile = Path.Combine(appFolder, "Players.json");
+        string json = JsonConvert.SerializeObject(players.ToArray());
 
-        await using FileStream createStream = File.Create(myFile);
-        await JsonSerializer.SerializeAsync(createStream, players);
+        File.WriteAllText(@$"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Players.json", json);
+    }
+
+    public static void LoginPlayer(PlayerData player) {
+        
     }
 
     public static void UpdatePlayerHealth(PlayerData player) {

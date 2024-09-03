@@ -8,7 +8,7 @@
     public static PlayerData player = new PlayerData();
     public static void Main(string[] args) {
 
-
+        Console.Title = "CrystalGames presents - ConsoleRPG";
 
         #region Intro
         if (!introSkip) {
@@ -228,6 +228,7 @@
                 abilityScores -= scoreModArr[4];
                 player.PlayerChaMod += scoreModArr[5];
                 abilityScores -= scoreModArr[5];
+                Console.Clear();
             }
 
 
@@ -269,7 +270,7 @@
             }
 
             Console.Clear();
-            Console.WriteLine("Saving Data");
+            Console.Write("Saving Data");
             Thread.Sleep(Dice.Roll(500, 2, 1000));
             Console.Write(".");
             Thread.Sleep(Dice.Roll(500, 2, 1000));
@@ -287,9 +288,10 @@
     static int GenerateAbilityScores()
     {
         int[] rolls = new int[4];
-        for (int i = 0; i < 4; i++) {
-            rolls[i] = Dice.Roll(6);
-        }
+        rolls[0] = Dice.Roll(6);
+        rolls[1] = Dice.Roll(6);
+        rolls[2] = Dice.Roll(6);
+        rolls[3] = Dice.Roll(6);
         Array.Sort(rolls);
 
         return rolls[0] + rolls[1] + rolls[2];

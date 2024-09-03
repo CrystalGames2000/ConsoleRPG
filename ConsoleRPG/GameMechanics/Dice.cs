@@ -2,7 +2,7 @@
 {
     public static int Roll(int faces) {
         Random r = new Random();
-        return r.Next(0, faces+1);
+        return r.Next(1, faces+1);
     }
 
     public static int Roll(int faces, int amount) {
