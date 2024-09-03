@@ -4,7 +4,7 @@
     static bool skipRegister = false;
 
     public static string raceStatModfier = "";
-    public static int saveSlot;
+    public static string saveSlot = "";
     public static string newGame = "";
 
     public static PlayerData player = new PlayerData();
@@ -67,12 +67,14 @@
             case "Y":
                 //Asks for save file
                 Console.WriteLine("Please Select a save slot (1-6): ");
-                saveSlot = 
-
+                saveSlot = Console.ReadLine();
                 RegisterPlayer();
                 break;
             case "N":
-                DataManager.LoginPlayer(player);
+                //Asks for save file
+                Console.WriteLine("Please select a save slot to load (1-6): ");
+                saveSlot = Console.ReadLine();
+                DataManager.LoginPlayer(player, saveSlot);
                 break;
         }
     }

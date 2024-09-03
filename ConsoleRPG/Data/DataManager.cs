@@ -2,7 +2,7 @@
 
 public static class DataManager
 {
-    public static async void RegisterNewPlayer(PlayerData player, int saveSlot) {
+    public static async void RegisterNewPlayer(PlayerData player, string saveSlot) {
         List<PlayerData> players = new List<PlayerData>();
         players.Add(new PlayerData() {
             PlayerFirstName = player.PlayerFirstName,
@@ -35,7 +35,7 @@ public static class DataManager
         await JsonSerializer.SerializeAsync(createStream, players);
     }
 
-    public static void LoginPlayer(PlayerData player) {
+    public static void LoginPlayer(PlayerData player, string saveSlot) {
 
     }
 
