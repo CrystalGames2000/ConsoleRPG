@@ -13,8 +13,9 @@
     public int enemyWis;
     public int enemyCha;
 
-    public PlayerData player = new(Game.player);
-    public Enemy(string name, int health, int speed, int xp, int str, int dex, int con, int intelligence, int wis, int cha, PlayerData player) {
+    private PlayerData player;
+
+    public Enemy(string name, int health, int speed, int xp, int str, int dex, int con, int intelligence, int wis, int cha) {
         this.name = name;
         this.health = health;
         this.speed = speed;
@@ -25,7 +26,6 @@
         this.enemyInt = intelligence;
         this.enemyWis = wis;
         this.enemyCha = cha;
-        this.player = player;
     }
 
     public void Attack(Enemy enemy) {

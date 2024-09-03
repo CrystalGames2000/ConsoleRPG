@@ -3,12 +3,14 @@
     static bool introSkip = true;
     static bool skipRegister = false;
 
-    public static string raceStatModfier;
+    public static string raceStatModfier = "";
+    public static int saveSlot;
+    public static string newGame = "";
 
     public static PlayerData player = new PlayerData();
     public static void Main(string[] args) {
 
-        Console.Title = "CrystalGames presents - ConsoleRPG";
+        Console.Title = "CrystalGames' ConsoleRPG";
 
         #region Intro
         if (!introSkip) {
@@ -59,28 +61,40 @@
 
         #endregion
 
-        RegisterPlayer();
+        Console.WriteLine("Would you like to start a new game? [y/n]");
+        newGame = Console.ReadLine();
+        switch (newGame.ToUpper()) {
+            case "Y":
+                //Asks for save file
+                Console.WriteLine("Please Select a save slot (1-6): ");
+                saveSlot = 
+
+                RegisterPlayer();
+                break;
+            case "N":
+                DataManager.LoginPlayer(player);
+                break;
+        }
     }
 
     static void RegisterPlayer()
     {
-        if (!skipRegister)
-        {
-            //Recieves player's first name
-            Console.WriteLine("Please choose your character's first name: ");
-            player.PlayerFirstName = Console.ReadLine();
-            Console.Clear();
 
-            //Recieves player's last name
-            Console.WriteLine("Please choose your character's last name: ");
-            player.PlayerLastName = Console.ReadLine();
-            Console.Clear();
+        //Recieves player's first name
+        Console.WriteLine("Please choose your character's first name: ");
+        player.PlayerFirstName = Console.ReadLine();
+        Console.Clear();
 
-            //Recieves the player's race
-            Console.WriteLine("Please pick a race:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman\n");
-            player.PlayerRace = Console.ReadLine();
-            Console.Clear();
-            switch (player.PlayerRace.ToUpper())
+        //Recieves player's last name
+        Console.WriteLine("Please choose your character's last name: ");
+        player.PlayerLastName = Console.ReadLine();
+        Console.Clear();
+
+        //Recieves the player's race
+        Console.WriteLine("Please pick a race:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman\n");
+        player.PlayerRace = Console.ReadLine();
+        Console.Clear();
+        switch (player.PlayerRace.ToUpper())
             {
                 case ("DWARF"):
                     player.PlayerConMod += 2;
@@ -199,18 +213,18 @@
                     Console.Clear();
                     break;
             }
-            Console.Clear();
+        Console.Clear();
 
-            //Recieves the player's class
-            Console.WriteLine("Please pick a class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard\n");
-            player.PlayerClass = Console.ReadLine();
-            Console.Clear();
+        //Recieves the player's class
+        Console.WriteLine("Please pick a class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard\n");
+        player.PlayerClass = Console.ReadLine();
+        Console.Clear();
 
-            Console.WriteLine("Generating Ability Scores...");
-            Thread.Sleep(1250);
-            int abilityScores = GenerateAbilityScores();
+        Console.WriteLine("Generating Ability Scores...");
+        Thread.Sleep(1250);
+        int abilityScores = GenerateAbilityScores();
 
-            while(abilityScores > 0) {
+        while(abilityScores > 0) {
                 Console.WriteLine($"You now have {abilityScores} Points");
                 Console.WriteLine("Please type the amount of ability scores you would like\nto increase, separated by a comma (Please avoid\nusing spaces), using this order:\nStrength\nDexterity\nConstitution\nIntelligence\nWisdom\nCharisma\n");
                 string abiliyScoreMod = Console.ReadLine();
@@ -232,8 +246,8 @@
             }
 
 
-            //Handles Health Management
-            switch (player.PlayerClass.ToUpper()) {
+        //Handles Health Management
+        switch (player.PlayerClass.ToUpper()) {
                 case ("BARBARIAN"):
                     player.PlayerHealth = 1 + Dice.Roll(12, 1, player.PlayerConMod);
                     break;
@@ -269,20 +283,19 @@
                     break;
             }
 
-            Console.Clear();
-            Console.Write("Saving Data");
-            Thread.Sleep(Dice.Roll(500, 2, 1000));
-            Console.Write(".");
-            Thread.Sleep(Dice.Roll(500, 2, 1000));
-            Console.Write(".");
-            Thread.Sleep(Dice.Roll(500, 2, 1000));
-            Console.Write(".");
-            Thread.Sleep(Dice.Roll(500, 2, 1000));
-            Console.Clear();
+        Console.Clear();
+        Console.Write("Saving Data");
+        Thread.Sleep(Dice.Roll(500, 2, 750));
+        Console.Write(".");
+        Thread.Sleep(Dice.Roll(500, 2, 750));
+        Console.Write(".");
+        Thread.Sleep(Dice.Roll(500, 2, 750));
+        Console.Write(".");
+        Thread.Sleep(Dice.Roll(500, 2, 750));
+        Console.Clear();
 
-            DataManager.RegisterNewPlayer(player);
-            Console.WriteLine("Player successfully created");
-        }
+        DataManager.RegisterNewPlayer(player, saveSlot);
+        Console.WriteLine("Player successfully created");
     }
 
     static int GenerateAbilityScores()

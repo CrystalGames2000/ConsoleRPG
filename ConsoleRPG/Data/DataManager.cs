@@ -1,10 +1,8 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
 
 public static class DataManager
 {
-    public static async void RegisterNewPlayer(PlayerData player) {
+    public static async void RegisterNewPlayer(PlayerData player, int saveSlot) {
         List<PlayerData> players = new List<PlayerData>();
         players.Add(new PlayerData() {
             PlayerFirstName = player.PlayerFirstName,
@@ -28,13 +26,17 @@ public static class DataManager
             PlayerCha = player.PlayerCha
         });
 
-        string json = JsonConvert.SerializeObject(players.ToArray());
+        var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        var appFolder = Path.Combine(appData, "ConsoleRPG");
+        _ = Directory.CreateDirectory(appFolder);
+        var myFile = Path.Combine(appFolder, "Players.json");
 
-        File.WriteAllText(@$"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Players.json", json);
+        await using FileStream createStream = File.Create(myFile);
+        await JsonSerializer.SerializeAsync(createStream, players);
     }
 
     public static void LoginPlayer(PlayerData player) {
-        
+
     }
 
     public static void UpdatePlayerHealth(PlayerData player) {
