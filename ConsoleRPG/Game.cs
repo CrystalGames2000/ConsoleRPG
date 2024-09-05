@@ -1,19 +1,19 @@
 ﻿public static class Game
 {
-    static bool introSkip = true;
-    static bool skipRegister = false;
+    static bool skipIntro = true;
+    static bool skipRegister = true;
 
     public static string raceStatModfier = "";
     public static string saveSlot = "";
     public static string newGame = "";
-
+    
     public static PlayerData player = new PlayerData();
+    public static byte[] mapData;
     public static void Main(string[] args) {
 
-        Console.Title = "CrystalGames' ConsoleRPG";
-
         #region Intro
-        if (!introSkip) {
+        Console.Title = "CrystalGames' ConsoleRPG";
+        if (!skipIntro) {
             Console.WriteLine("Getting Things Ready...");
             Thread.Sleep(1000);
             Console.WriteLine("Processing Data...");
@@ -61,27 +61,34 @@
 
         #endregion
 
+        
+    }
+
+    static void SigninProcedure() {
+        /*Console.WriteLine("Please Select a save slot the game would use (1-6): ");
+        saveSlot = Console.ReadLine();
+        DataManager.saveSlot = saveSlot;
+
+        if (!skipRegister) {
         Console.WriteLine("Would you like to start a new game? [y/n]");
         newGame = Console.ReadLine();
         switch (newGame.ToUpper()) {
             case "Y":
-                //Asks for save file
-                Console.WriteLine("Please Select a save slot (1-6): ");
-                saveSlot = Console.ReadLine();
                 RegisterPlayer();
                 break;
             case "N":
-                //Asks for save file
-                Console.WriteLine("Please select a save slot to load (1-6): ");
-                saveSlot = Console.ReadLine();
-                DataManager.LoginPlayer(player, saveSlot);
+                DataManager.LoginPlayer(player);
                 break;
         }
+        }
+
+        Console.Write(DataManager.savePath);
+        Console.ReadLine();
+        */
     }
 
-    static void RegisterPlayer()
-    {
-
+    static void RegisterPlayer() {
+        /*
         //Recieves player's first name
         Console.WriteLine("Please choose your character's first name: ");
         player.PlayerFirstName = Console.ReadLine();
@@ -296,7 +303,7 @@
         Thread.Sleep(Dice.Roll(500, 2, 750));
         Console.Clear();
 
-        DataManager.RegisterNewPlayer(player, saveSlot);
+        //DataManager.RegisterNewPlayer(player);
         Console.WriteLine("Player successfully created");
     }
 
@@ -310,5 +317,7 @@
         Array.Sort(rolls);
 
         return rolls[0] + rolls[1] + rolls[2];
+    }
+    */
     }
 }
