@@ -1,4 +1,4 @@
-﻿public class Food: Consumable
+﻿public class Food
 {
-    string Item.Name { get; set; }
+
 }

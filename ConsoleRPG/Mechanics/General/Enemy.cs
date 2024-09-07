@@ -1,25 +1,17 @@
-﻿public class Enemy(string name, int health, int speed, int xp, int str, int dex, int con, int intelligence, int wis, int cha)
+﻿public class Enemy()
 {
-    public string name = name;
-    public int health = health;
-    public int damage;
-    public int speed = speed;
-    public int xp = xp;
+    public string Name { get; set; }
+    public int Health { get; set; }
+    public int Damage {  get; set; }
+    public int Speed {  get; set; }
+    public int XP {  get; set; }
 
-    public int enemyStr = str;
-    public int enemyDex = dex;
-    public int enemyCon = con;
-    public int enemyInt = intelligence;
-    public int enemyWis = wis;
-    public int enemyCha = cha;
+    public int Strength {  get; set; }
+    public int Dexterity {  get; set; }
+    public int Constitution {  get; set; }
+    public int Intelligence {  get; set; }
+    public int Wisdom {  get; set; }
+    public int Charisma {  get; set; }
 
-    private PlayerData player;
-
-    public void Attack(Enemy enemy) {
-        player.PlayerHealth -= enemy.damage;
-    }
-
-    public void Die(Enemy enemy) {
-        player.PlayerXP += enemy.xp;
-    }
+    
 }

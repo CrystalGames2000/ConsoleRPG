@@ -1,13 +1,12 @@
-﻿public class Weapon: Item
+﻿public class Weapon
 {
-    string Item.Name { get; set; }
-
-    int? Cost { get; set; }
+    string Name { get; set; }
+    string? Cost { get; set; }
     string? DmgS {  get; set; }
     string? DmgM { get; set; }
-    int? Critical {  get; set; }
-    int? Range { get; set; }
-    int? Weight { get; set; }
-    string? Type { get; set; }
+    string? Critical {  get; set; }
+    double? Range { get; set; }
+    double? Weight { get; set; }
+    string[]? Type { get; set; }
     string[]? Special {  get; set; }
 }

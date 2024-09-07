@@ -13,8 +13,4 @@
     <None Remove="Mechanics\Items\NewFolder\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\NPCs\" />
-  </ItemGroup>
-
 </Project>
