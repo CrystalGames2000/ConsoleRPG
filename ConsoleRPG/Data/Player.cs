@@ -1,24 +1,29 @@
-﻿public class Player
+﻿public class Player(string FirstName, string LastName, string Race, string Class, int Level, int XP, int CP, int SP, int GP, int PP, int MoveSpeed, int Health, int StrMod, int DexMod, int ConMod, int IntMod, int WisMod, int ChaMod, int Strength, int Dexterity, int Constitution, int Intelligence, int Wisdom, int Charisma)
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Race { get; set; }
-    public string Class { get; set; }
-    public int Level { get; set; }
-    public int XP { get; set; }
-    public int GP { get; set; }
-    public int MoveSpeed { get; set; }
-    public int Health { get; set; }
-    public int StrMod { get; set; }
-    public int DexMod { get; set; }
-    public int ConMod { get; set; }
-    public int IntMod { get; set; }
-    public int WisMod { get; set; }
-    public int ChaMod { get; set; }
-    public int Strength { get; set; }
-    public int Dexterity { get; set; }
-    public int Constitution { get; set; }
-    public int Intelligence { get; set; }
-    public int Wisdom { get; set; }
-    public int Charisma { get; set; }
+    public string FirstName =       FirstName;
+    public string LastName =         LastName;
+    public string Race =                 Race;
+    public string Class =               Class;
+    public int    Level =               Level;
+    public int    XP =                     XP;
+    public int    CP =                     CP;
+    public int    SP =                     SP;
+    public int    GP =                     GP;
+    public int    PP =                     PP;
+    public int    MoveSpeed =       MoveSpeed;
+    public int    Health =             Health;
+    public int    StrMod =             StrMod;
+    public int    DexMod =             DexMod;
+    public int    ConMod =             ConMod;
+    public int    IntMod =             IntMod;
+    public int    WisMod =             WisMod;
+    public int    ChaMod =             ChaMod;
+    public int    Strength =         Strength;
+    public int    Dexterity =       Dexterity;
+    public int    Constitution = Constitution;
+    public int    Intelligence = Intelligence;
+    public int    Wisdom =             Wisdom;
+    public int    Charisma =         Charisma; 
+
+
 }

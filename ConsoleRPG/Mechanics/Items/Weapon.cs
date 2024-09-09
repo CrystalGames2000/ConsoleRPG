@@ -9,4 +9,6 @@
     double? Weight { get; set; }
     string[]? Type { get; set; }
     string[]? Special {  get; set; }
+    string? Category { get; set; }
+    string? Sub_Category {  get; set; } 
 }

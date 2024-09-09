@@ -1,7 +1,7 @@
 [
   {
     "Name": "Gauntlet",
-    "Cost": "2",
+    "Cost": "2gp",
     "DmgS": "1d2",
     "DmgM": "1d3",
     "Critical": "x2",
@@ -23,7 +23,7 @@
   },
   {
     "Name": "Dagger",
-    "Cost": "2",
+    "Cost": "2gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "19-20/x2",
@@ -34,7 +34,7 @@
   },
   {
     "Name": "Punching Dagger",
-    "Cost": "2",
+    "Cost": "2gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "x3",
@@ -45,7 +45,7 @@
   },
   {
     "Name": "Spiked Gauntlet",
-    "Cost": "5",
+    "Cost": "5gp",
     "DmgS": "1d3",
     "DmgM": "1f4",
     "Critical": "x2",
@@ -56,7 +56,7 @@
   },
   {
     "Name": "Light Mace",
-    "Cost": "5",
+    "Cost": "5gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -67,7 +67,7 @@
   },
   {
     "Name": "Sickle",
-    "Cost": "6",
+    "Cost": "6gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -89,7 +89,7 @@
   },
   {
     "Name": "Heavy Mace",
-    "Cost": "12",
+    "Cost": "12gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x2",
@@ -100,7 +100,7 @@
   },
   {
     "Name": "Morningstar",
-    "Cost": "8",
+    "Cost": "8gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x2",
@@ -111,7 +111,7 @@
   },
   {
     "Name": "Shortspear",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -122,7 +122,7 @@
   },
   {
     "Name": "Longspear",
-    "Cost": "5",
+    "Cost": "5gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -144,7 +144,7 @@
   },
   {
     "Name": "Spear",
-    "Cost": "2",
+    "Cost": "2gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -155,7 +155,7 @@
   },
   {
     "Name": "Blowgun",
-    "Cost": "2",
+    "Cost": "2gp",
     "DmgS": "1",
     "DmgM": "1d2",
     "Critical": "x2",
@@ -166,7 +166,7 @@
   },
   {
     "Name": "10 Blowgun Darts",
-    "Cost": "0.5",
+    "Cost": "5sp",
     "DmgS": null,
     "DmgM": null,
     "Critical": null,
@@ -177,7 +177,7 @@
   },
   {
     "Name": "Heavy Crossbow",
-    "Cost": "50",
+    "Cost": "50gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "19-20/x2",
@@ -188,7 +188,7 @@
   },
   {
     "Name": "10 Crossbow Bolts",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": null,
     "DmgM": null,
     "Critical": null,
@@ -199,7 +199,7 @@
   },
   {
     "Name": "Light Crossbow",
-    "Cost": "35",
+    "Cost": "35gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "19-20/x2",
@@ -210,7 +210,7 @@
   },
   {
     "Name": "Dart",
-    "Cost": "5",
+    "Cost": "5sp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "x2",
@@ -221,7 +221,7 @@
   },
   {
     "Name": "Javelin",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -243,7 +243,7 @@
   },
   {
     "Name": "10 Sling Bullets",
-    "Cost": "0.1",
+    "Cost": "1sp",
     "DmgS": null,
     "DmgM": null,
     "Critical": null,
@@ -254,7 +254,7 @@
   },
   {
     "Name": "Throwing Axe",
-    "Cost": "8",
+    "Cost": "8gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -265,7 +265,7 @@
   },
   {
     "Name": "Light Hammer",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "x2",
@@ -276,7 +276,7 @@
   },
   {
     "Name": "Handaxe",
-    "Cost": "6",
+    "Cost": "6gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x3",
@@ -287,7 +287,7 @@
   },
   {
     "Name": "Kukri",
-    "Cost": "8",
+    "Cost": "8gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "18-20/x2",
@@ -298,7 +298,7 @@
   },
   {
     "Name": "Light Pick",
-    "Cost": "4",
+    "Cost": "4gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "x4",
@@ -309,7 +309,7 @@
   },
   {
     "Name": "Sap",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -353,7 +353,7 @@
   },
   {
     "Name": "Starknife",
-    "Cost": "24",
+    "Cost": "24gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "x3",
@@ -364,7 +364,7 @@
   },
   {
     "Name": "Short Sword",
-    "Cost": "10",
+    "Cost": "10gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "19-20/x2",
@@ -375,7 +375,7 @@
   },
   {
     "Name": "Battleaxe",
-    "Cost": "10",
+    "Cost": "10gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -386,7 +386,7 @@
   },
   {
     "Name": "Flail",
-    "Cost": "8",
+    "Cost": "8gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -397,7 +397,7 @@
   },
   {
     "Name": "Longsword",
-    "Cost": "15",
+    "Cost": "15gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "19-20/x2",
@@ -408,7 +408,7 @@
   },
   {
     "Name": "Heavy Pick",
-    "Cost": "8",
+    "Cost": "8gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x4",
@@ -419,7 +419,7 @@
   },
   {
     "Name": "Rapier",
-    "Cost": "20",
+    "Cost": "20gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "18-20/x2",
@@ -430,7 +430,7 @@
   },
   {
     "Name": "Scimitar",
-    "Cost": "15",
+    "Cost": "15gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "18-20/x2",
@@ -463,7 +463,7 @@
   },
   {
     "Name": "Trident",
-    "Cost": "15",
+    "Cost": "15gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x2",
@@ -474,7 +474,7 @@
   },
   {
     "Name": "Warhammer",
-    "Cost": "12",
+    "Cost": "12gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -485,7 +485,7 @@
   },
   {
     "Name": "Falchion",
-    "Cost": "75",
+    "Cost": "75gp",
     "DmgS": "16",
     "DmgM": "2d4",
     "Critical": "18-20/x2",
@@ -496,7 +496,7 @@
   },
   {
     "Name": "Glaive",
-    "Cost": "8",
+    "Cost": "8gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "x3",
@@ -507,7 +507,7 @@
   },
   {
     "Name": "Greataxe",
-    "Cost": "20",
+    "Cost": "20gp",
     "DmgS": "1d10",
     "DmgM": "1d12",
     "Critical": "x3",
@@ -518,7 +518,7 @@
   },
   {
     "Name": "Greatclub",
-    "Cost": "5",
+    "Cost": "5gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "x3",
@@ -529,7 +529,7 @@
   },
   {
     "Name": "Heavy Flail",
-    "Cost": "15",
+    "Cost": "15gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "19-20/x2",
@@ -540,7 +540,7 @@
   },
   {
     "Name": "Greatsword",
-    "Cost": "50",
+    "Cost": "50gp",
     "DmgS": "1d10",
     "DmgM": "2d6",
     "Critical": "19-20/x2",
@@ -551,7 +551,7 @@
   },
   {
     "Name": "Guisarme",
-    "Cost": "9",
+    "Cost": "9gp",
     "DmgS": "1d6",
     "DmgM": "2d4",
     "Critical": "x3",
@@ -562,7 +562,7 @@
   },
   {
     "Name": "Halberd",
-    "Cost": "10",
+    "Cost": "10gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "x3",
@@ -573,7 +573,7 @@
   },
   {
     "Name": "Lance",
-    "Cost": "10",
+    "Cost": "10gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -584,7 +584,7 @@
   },
   {
     "Name": "Ranseur",
-    "Cost": "10",
+    "Cost": "10gp",
     "DmgS": "1d6",
     "DmgM": "2d4",
     "Critical": "x3",
@@ -595,7 +595,7 @@
   },
   {
     "Name": "Scythe",
-    "Cost": "18",
+    "Cost": "18gp",
     "DmgS": "1d6",
     "DmgM": "2d4",
     "Critical": "x4",
@@ -606,7 +606,7 @@
   },
   {
     "Name": "Longbo",
-    "Cost": "75",
+    "Cost": "75gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -617,7 +617,7 @@
   },
   {
     "Name": "20 Arrows",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": null,
     "DmgM": null,
     "Critical": null,
@@ -628,7 +628,7 @@
   },
   {
     "Name": "Composite Longbow",
-    "Cost": "100",
+    "Cost": "100gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3",
@@ -639,7 +639,7 @@
   },
   {
     "Name": "Shortbow",
-    "Cost": "30",
+    "Cost": "30gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x3",
@@ -650,7 +650,7 @@
   },
   {
     "Name": "Composite Shortbow",
-    "Cost": "75",
+    "Cost": "75gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x3",
@@ -661,7 +661,7 @@
   },
   {
     "Name": "Kama",
-    "Cost": "2",
+    "Cost": "2gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -672,7 +672,7 @@
   },
   {
     "Name": "Nunchaku",
-    "Cost": "2",
+    "Cost": "2gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -683,7 +683,7 @@
   },
   {
     "Name": "Sai",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "x2",
@@ -694,7 +694,7 @@
   },
   {
     "Name": "Siangham",
-    "Cost": "3",
+    "Cost": "3gp",
     "DmgS": "1d4",
     "DmgM": "1d6",
     "Critical": "x2",
@@ -705,7 +705,7 @@
   },
   {
     "Name": "Bastard Sword",
-    "Cost": "35",
+    "Cost": "35gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "19-20/x2",
@@ -716,7 +716,7 @@
   },
   {
     "Name": "Dwarven Waraxe",
-    "Cost": "3-",
+    "Cost": "30gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "x3",
@@ -727,7 +727,7 @@
   },
   {
     "Name": "Whip",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": "1d2",
     "DmgM": "1d3",
     "Critical": "x2",
@@ -738,7 +738,7 @@
   },
   {
     "Name": "Orc Double Axe",
-    "Cost": "60",
+    "Cost": "60gp",
     "DmgS": "1d6/1d6",
     "DmgM": "1d8/1d8",
     "Critical": "x3",
@@ -749,7 +749,7 @@
   },
   {
     "Name": "Spiked Chain",
-    "Cost": "25",
+    "Cost": "25gp",
     "DmgS": "1d6",
     "DmgM": "2d4",
     "Critical": "x2",
@@ -760,7 +760,7 @@
   },
   {
     "Name": "Elven Curve Blade",
-    "Cost": "80",
+    "Cost": "80gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "18-20/x2",
@@ -771,7 +771,7 @@
   },
   {
     "Name": "Dire Flail",
-    "Cost": "90",
+    "Cost": "90gp",
     "DmgS": "1d6/1d6",
     "DmgM": "1d8/1d8",
     "Critical": "x2",
@@ -782,7 +782,7 @@
   },
   {
     "Name": "Gnome Hooked Hammer",
-    "Cost": "2-",
+    "Cost": "20gp",
     "DmgS": "1d6/1d4",
     "DmgM": "1d8/1d6",
     "Critical": "x3/x4",
@@ -793,7 +793,7 @@
   },
   {
     "Name": "Two-Bladed Sword",
-    "Cost": "100",
+    "Cost": "100gp",
     "DmgS": "1d6/1d6",
     "DmgM": "1d8/1d8",
     "Critical": "19-20/x2",
@@ -804,7 +804,7 @@
   },
   {
     "Name": "Dwarven Urgrosh",
-    "Cost": "50",
+    "Cost": "50gp",
     "DmgS": "1d6/1d4",
     "DmgM": "1d8/1d6",
     "Critical": "x3/x4",
@@ -815,7 +815,7 @@
   },
   {
     "Name": "Bolas",
-    "Cost": "5",
+    "Cost": "5gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "x2",
@@ -826,7 +826,7 @@
   },
   {
     "Name": "Hand Crossbow",
-    "Cost": "100",
+    "Cost": "100gp",
     "DmgS": "1d3",
     "DmgM": "1d4",
     "Critical": "19-20/x2",
@@ -837,7 +837,7 @@
   },
   {
     "Name": "Repeating Heavy Crossbow",
-    "Cost": "400",
+    "Cost": "400gp",
     "DmgS": "1d8",
     "DmgM": "1d10",
     "Critical": "19-20/x2",
@@ -848,7 +848,7 @@
   },
   {
     "Name": "5 Bolts",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": null,
     "DmgM": null,
     "Critical": null,
@@ -859,7 +859,7 @@
   },
   {
     "Name": "Repeating Light Crossbow",
-    "Cost": "250",
+    "Cost": "250gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "19-20/x2",
@@ -870,7 +870,7 @@
   },
   {
     "Name": "Net",
-    "Cost": "20",
+    "Cost": "20gp",
     "DmgS": null,
     "DmgM": null,
     "Critical": null,
@@ -881,7 +881,7 @@
   },
   {
     "Name": "5 Shuriken",
-    "Cost": "1",
+    "Cost": "1gp",
     "DmgS": "1",
     "DmgM": "1d2",
     "Critical": "x2",
@@ -892,7 +892,7 @@
   },
   {
     "Name": "Halfling Sling Staff",
-    "Cost": "20",
+    "Cost": "20gp",
     "DmgS": "1d6",
     "DmgM": "1d8",
     "Critical": "x3/x4",
