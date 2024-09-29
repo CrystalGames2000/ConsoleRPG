@@ -1,16 +1,16 @@
-﻿public static class Game
+﻿public class Game
 {
     static bool skipIntro = true;
-    static bool skipRegister = true;
+    static bool skipRegister = false;
 
     static string raceStatModifier = "";
     static string saveSlot = "";
     static string newGame = "";
 
-    public static Player player;
+    static Player? player;
 
-    public static string? firstName, lastName, playerRace, playerClass;
-    public static int strMod, dexMod, conMod, intMod, wisMod, chaMod, moveSpeed, gp, health;
+    static string? firstName, lastName, playerRace, playerClass;
+    static int strMod, dexMod, conMod, intMod, wisMod, chaMod, moveSpeed, cp, sp, gp, pp, health;
 
     public static void Main(string[] args) {
 
@@ -123,7 +123,7 @@
                         chaMod += 2;
                         break;
                 }
-                player.MoveSpeed += 30;
+                moveSpeed = 30;
 
                 break;
             case "HALFORC":
@@ -149,7 +149,7 @@
                         chaMod += 2;
                         break;
                 }
-                player.MoveSpeed += 30;
+                moveSpeed = 30;
 
                 break;
             case "HALFLING":
@@ -181,7 +181,7 @@
                         chaMod += 2;
                         break;
                 }
-                player.MoveSpeed += 30;
+                moveSpeed = 30;
 
                 break;
         }
@@ -236,6 +236,8 @@
                 break;
         }
 
-        player = new Player(firstName, lastName, playerRace, playerClass, 0, 0, 0, 0, gp, 0, moveSpeed, health, strMod, dexMod, conMod, intMod, wisMod, chaMod, 0, 0, 0, 0, 0, 0);
+        player = new Player(firstName, lastName, playerRace, playerClass, 0, 0, cp, sp, gp, pp, moveSpeed, health, strMod, dexMod, conMod, intMod, wisMod, chaMod, 0, 0, 0, 0, 0, 0);
+
+        DataManager.RegisterPlayer(player);
     }
 }
