@@ -9,8 +9,8 @@
 
     static Player? player;
 
-    static string? firstName, lastName, playerRace, playerClass;
-    static int strMod, dexMod, conMod, intMod, wisMod, chaMod, moveSpeed, cp, sp, gp, pp, health;
+    static string? firstName, lastName, playerRace, playerClass = "";
+    static int strMod, dexMod, conMod, intMod, wisMod, chaMod, moveSpeed, cp, sp, gp, pp, health = 0;
 
     public static void Main(string[] args) {
 
@@ -191,47 +191,47 @@
         playerClass = Console.ReadLine();
         switch (playerClass) {
             case "BARBARIAN":
-                gp = Dice.Roll(6, 3) * 10;
+                gp += Dice.Roll(6, 3) * 10;
                 health = 1 + Dice.Roll(12, 1) + conMod;
                 break;
             case "BARD":
-                gp = Dice.Roll(6, 3) * 10;
+                gp += Dice.Roll(6, 3) * 10;
                 health = 1 + Dice.Roll(8, 1) + conMod;
                 break;
             case "CLERIC":
-                gp = Dice.Roll(6, 4) * 10;
+                gp += Dice.Roll(6, 4) * 10;
                 health = 1 + Dice.Roll(8, 1) + conMod;
                 break;
             case "DRUID":
-                gp = Dice.Roll(6, 2) * 10;
+                gp += Dice.Roll(6, 2) * 10;
                 health = 1 + Dice.Roll(8, 1) + conMod;
                 break;
             case "FIGHTER":
-                gp = Dice.Roll(6, 5) * 10;
+                gp += Dice.Roll(6, 5) * 10;
                 health = 1 + Dice.Roll(10, 1) + conMod;
                 break;
             case "MONK":
-                gp = Dice.Roll(6, 1) * 10;
+                gp += Dice.Roll(6, 1) * 10;
                 health = 1 + Dice.Roll(8, 1) + conMod;
                 break;
             case "PALADIN":
-                gp = Dice.Roll(6, 5) * 10;
+                gp += Dice.Roll(6, 5) * 10;
                 health = 1 + Dice.Roll(10, 1) + conMod;
                 break;
             case "RANGER":
-                gp = Dice.Roll(6, 5) * 10;
+                gp += Dice.Roll(6, 5) * 10;
                 health = 1 + Dice.Roll(10, 1) + conMod;
                 break;
             case "ROGUE":
-                gp = Dice.Roll(6, 4) * 10;
+                gp += Dice.Roll(6, 4) * 10;
                 health = 1 + Dice.Roll(8, 1) + conMod;
                 break;
             case "SORCERER":
-                gp = Dice.Roll(6, 2) * 10;
+                gp += Dice.Roll(6, 2) * 10;
                 health = 1 + Dice.Roll(6, 1) + conMod;
                 break;
             case "WIZARD":
-                gp = Dice.Roll(6, 2) * 10;
+                gp += Dice.Roll(6, 2) * 10;
                 health = 1 + Dice.Roll(6, 1) + conMod;
                 break;
         }
