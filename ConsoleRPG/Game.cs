@@ -18,6 +18,11 @@
         if(!skipIntro) StartIntro();
 
         if(!skipRegister) RegisterCharacter();
+        PlayerDataManager.DisplayPlayerStats(player);
+        Console.Clear();
+
+        ItemDataManager.LoadWeapons(ItemManager.weapons);
+        ItemDataManager.DisplayWeapons(ItemManager.weapons);
 
         Console.Read();
     }
@@ -81,6 +86,7 @@
         Console.Clear();
         Console.WriteLine("Plesae choose your character's race from the following list:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman");
         playerRace = Console.ReadLine();
+        Console.Clear();
         switch (playerRace.ToUpper()) {
             case "DWARF":
                 conMod += 2;
@@ -189,55 +195,57 @@
         Console.Clear();
         Console.WriteLine("Please chooe your character's class from the following list:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
         playerClass = Console.ReadLine();
-        switch (playerClass) {
+        switch (playerClass.ToUpper()) {
             case "BARBARIAN":
                 gp += Dice.Roll(6, 3) * 10;
-                health = 1 + Dice.Roll(12, 1) + conMod;
+                health = 1 + Dice.Roll(12, 1, conMod);
                 break;
             case "BARD":
                 gp += Dice.Roll(6, 3) * 10;
-                health = 1 + Dice.Roll(8, 1) + conMod;
+                health = 1 + Dice.Roll(8, 1, conMod);
                 break;
             case "CLERIC":
                 gp += Dice.Roll(6, 4) * 10;
-                health = 1 + Dice.Roll(8, 1) + conMod;
+                health = 1 + Dice.Roll(8, 1, conMod);
                 break;
             case "DRUID":
                 gp += Dice.Roll(6, 2) * 10;
-                health = 1 + Dice.Roll(8, 1) + conMod;
+                health = 1 + Dice.Roll(8, 1, conMod)    ;
                 break;
             case "FIGHTER":
                 gp += Dice.Roll(6, 5) * 10;
-                health = 1 + Dice.Roll(10, 1) + conMod;
+                health = 1 + Dice.Roll(10, 1, conMod);
                 break;
             case "MONK":
                 gp += Dice.Roll(6, 1) * 10;
-                health = 1 + Dice.Roll(8, 1) + conMod;
+                health = 1 + Dice.Roll(8, 1, conMod);
                 break;
             case "PALADIN":
                 gp += Dice.Roll(6, 5) * 10;
-                health = 1 + Dice.Roll(10, 1) + conMod;
+                health = 1 + Dice.Roll(10, 1, conMod);
                 break;
             case "RANGER":
                 gp += Dice.Roll(6, 5) * 10;
-                health = 1 + Dice.Roll(10, 1) + conMod;
+                health = 1 + Dice.Roll(10, 1, conMod);
                 break;
             case "ROGUE":
                 gp += Dice.Roll(6, 4) * 10;
-                health = 1 + Dice.Roll(8, 1) + conMod;
+                health = 1 + Dice.Roll(8, 1, conMod);
                 break;
             case "SORCERER":
                 gp += Dice.Roll(6, 2) * 10;
-                health = 1 + Dice.Roll(6, 1) + conMod;
+                health = 1 + Dice.Roll(6, 1, conMod);
                 break;
             case "WIZARD":
                 gp += Dice.Roll(6, 2) * 10;
-                health = 1 + Dice.Roll(6, 1) + conMod;
+                health = 1 + Dice.Roll(6, 1, conMod);
                 break;
         }
 
         player = new Player(firstName, lastName, playerRace, playerClass, 0, 0, cp, sp, gp, pp, moveSpeed, health, strMod, dexMod, conMod, intMod, wisMod, chaMod, 0, 0, 0, 0, 0, 0);
 
-        DataManager.RegisterPlayer(player);
+        PlayerDataManager.RegisterPlayer(player);
+
+        Console.Clear();
     }
 }

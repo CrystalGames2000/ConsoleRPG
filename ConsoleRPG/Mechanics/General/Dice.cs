@@ -9,7 +9,7 @@
         int res = 0;
         Random r = new Random();
         for (int i = 0; i < amount; i++) {
-            res += r.Next();
+            res += r.Next(1, faces + 1);
         }
 
         return res;
@@ -20,9 +20,10 @@
         Random r = new Random();
         for (int i = 0; i < amount; i++) {
             res += r.Next(1, faces+1);
-            res += modifier;
         }
-        
+
+        res += modifier;
+
         return res;
     }
 }

@@ -1,6 +1,6 @@
 ﻿public class Weapon
 {
-    string Name { get; set; }
+    string? Name { get; set; }
     string? Cost { get; set; }
     string? DmgS {  get; set; }
     string? DmgM { get; set; }
