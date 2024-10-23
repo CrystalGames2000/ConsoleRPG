@@ -1,4 +1,4 @@
-﻿public class Consumable: Item
+﻿public interface Item
 {
     public int? InventoryId { get; set; }
     public int? Amount { get; set; }

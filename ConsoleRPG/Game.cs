@@ -1,6 +1,6 @@
 ﻿public class Game
 {
-    static bool skipIntro = true;
+    static bool skipIntro = false;
     static bool skipRegister = false;
 
     static string raceStatModifier = "";
@@ -12,17 +12,17 @@
     static string? firstName, lastName, playerRace, playerClass = "";
     static int strMod, dexMod, conMod, intMod, wisMod, chaMod, moveSpeed, cp, sp, gp, pp, health = 0;
 
+    static List<Weapon> weapons;
+
+
     public static void Main(string[] args) {
 
         Console.Title = "CrystalGames' ConsoleRPG";
         if(!skipIntro) StartIntro();
 
         if(!skipRegister) RegisterCharacter();
+        PlayerDataManager.LoginPlayer(player);
         PlayerDataManager.DisplayPlayerStats(player);
-        Console.Clear();
-
-        ItemDataManager.LoadWeapons(ItemManager.weapons);
-        ItemDataManager.DisplayWeapons(ItemManager.weapons);
 
         Console.Read();
     }
