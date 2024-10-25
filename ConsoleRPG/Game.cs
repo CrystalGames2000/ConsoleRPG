@@ -12,7 +12,7 @@
     static string? firstName, lastName, playerRace, playerClass = "";
     static int strMod, dexMod, conMod, intMod, wisMod, chaMod, moveSpeed, cp, sp, gp, pp, health = 0;
 
-    static List<Weapon> weapons;
+    Item[]? inventory;
 
 
     public static void Main(string[] args) {
@@ -27,7 +27,7 @@
         Console.Read();
     }
 
-    public static void StartIntro() {
+    static void StartIntro() {
         Console.WriteLine("Getting Things Ready...");
         Thread.Sleep(1000);
         Console.WriteLine("Processing Data...");
@@ -73,7 +73,7 @@
         #endregion
     }
 
-    public static void RegisterCharacter() {
+    static void RegisterCharacter() {
 
         Console.Clear();
         Console.WriteLine("Please choose your character's first name: ");
@@ -242,7 +242,7 @@
                 break;
         }
 
-        player = new Player(firstName, lastName, playerRace, playerClass, 0, 0, cp, sp, gp, pp, moveSpeed, health, strMod, dexMod, conMod, intMod, wisMod, chaMod, 0, 0, 0, 0, 0, 0);
+        player = new Player(firstName, lastName, playerRace, playerClass, 0, 0, cp, sp, gp, pp, moveSpeed, health, strMod, dexMod, conMod, intMod, wisMod, chaMod, 0, 0, 0, 0, 0, 0, []);
 
         PlayerDataManager.RegisterPlayer(player);
 

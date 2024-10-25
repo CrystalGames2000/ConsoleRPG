@@ -24,8 +24,9 @@
     public int    Intelligence {get; set;}
     public int    Wisdom       {get; set;}
     public int    Charisma     {get; set;}
+    public Item[] Inventory    {get; set;}
 
-    public Player(string FirstName, string LastName, string Race, string Class, int Level, int XP, int CP, int SP, int GP, int PP, int MoveSpeed, int Health, int StrMod, int DexMod, int ConMod, int IntMod, int WisMod, int ChaMod, int Strength, int Dexterity, int Constitution, int Intelligence, int Wisdom, int Charisma) {
+    public Player(string FirstName, string LastName, string Race, string Class, int Level, int XP, int CP, int SP, int GP, int PP, int MoveSpeed, int Health, int StrMod, int DexMod, int ConMod, int IntMod, int WisMod, int ChaMod, int Strength, int Dexterity, int Constitution, int Intelligence, int Wisdom, int Charisma, Item[] inventory) {
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.Race = Race;
@@ -50,6 +51,7 @@
         this.Intelligence = Intelligence;
         this.Wisdom = Wisdom;
         this.Charisma = Charisma;
+        this.Inventory = inventory;
     }
 
 
