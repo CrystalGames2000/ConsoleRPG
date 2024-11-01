@@ -1,6 +1,6 @@
 ﻿public class Game
 {
-    static bool skipIntro = false;
+    static bool skipIntro = true;
     static bool skipRegister = false;
 
     static string raceStatModifier = "";
@@ -9,22 +9,26 @@
 
     static Player? player;
 
-    static string? firstName, lastName, playerRace, playerClass = "";
-    static int strMod, dexMod, conMod, intMod, wisMod, chaMod, moveSpeed, cp, sp, gp, pp, health = 0;
-
-    Item[]? inventory;
+    static PlayerInfo? playerInfo;
+    static PlayerWallet? playerWallet;
+    static PlayerStats? playerStats;
+    static PlayerStatMods? playerStatMods;
+    static List<Item>? inventory;
+    
 
 
     public static void Main(string[] args) {
-
-        Console.Title = "CrystalGames' ConsoleRPG";
-        if(!skipIntro) StartIntro();
-
-        if(!skipRegister) RegisterCharacter();
-        PlayerDataManager.LoginPlayer(player);
-        PlayerDataManager.DisplayPlayerStats(player);
+        Startup();
 
         Console.Read();
+    }
+
+    static void Startup() {
+        Console.Title = "CrystalGames' ConsoleRPG";
+        if (!skipIntro) StartIntro();
+
+        if (!skipRegister) RegisterCharacter();
+
     }
 
     static void StartIntro() {
@@ -77,172 +81,123 @@
 
         Console.Clear();
         Console.WriteLine("Please choose your character's first name: ");
-        firstName = Console.ReadLine();
+        playerInfo.FirstName = Console.ReadLine();
 
         Console.Clear();
         Console.WriteLine("Please choose your character's last name: ");
-        lastName = Console.ReadLine();
+        playerInfo.LastName = Console.ReadLine();
 
         Console.Clear();
         Console.WriteLine("Plesae choose your character's race from the following list:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman");
-        playerRace = Console.ReadLine();
+        playerInfo.Race = Console.ReadLine();
         Console.Clear();
-        switch (playerRace.ToUpper()) {
+        switch (playerInfo.Race.ToUpper()) {
             case "DWARF":
-                conMod += 2;
-                wisMod += 2;
-                chaMod -= 2;
-                moveSpeed = 20;
+                playerStatMods.Constitution += 2;
+                playerStatMods.Wisdom += 2;
+                playerStatMods.Charisma -= 2;
+                playerInfo.MoveSpeed = 20;
                 break;
             case "ELF":
-                dexMod = 2;
-                intMod = 2;
-                conMod = -2;
-                moveSpeed = 30;
+                playerStatMods.Dexterity = 2;
+                playerStatMods.Intelligence = 2;
+                playerStatMods.Constitution = -2;
+                playerInfo.MoveSpeed = 30;
                 break;
             case "GNOME":
-                strMod -= 2;
-                conMod += 2;
-                chaMod += 2;
-                moveSpeed = 20;
-                break;
-            case "HALFELF":
-                Console.WriteLine("Please select a stat modifier from the following list:\nStr(ength)\nDex(terity)\nCon(stitution)\nInt(elligence)\nWis(dom)\nCha(risma)");
-                raceStatModifier = Console.ReadLine();
-                switch (raceStatModifier.ToUpper()) {
-                    case "STR":
-                        strMod += 2;
-                        break;
-                    case "DEX":
-                        dexMod += 2;
-                        break;
-                    case "CON":
-                        conMod += 2;
-                        break;
-                    case "INT":
-                        intMod += 2;
-                        break;
-                    case "WIS":
-                        wisMod += 2;
-                        break;
-                    case "CHA":
-                        chaMod += 2;
-                        break;
-                }
-                moveSpeed = 30;
-
-                break;
-            case "HALFORC":
-                Console.WriteLine("Please select a stat modifier from the following list:\nStr(ength)\nDex(terity)\nCon(stitution)\nInt(elligence)\nWis(dom)\nCha(risma)");
-                raceStatModifier = Console.ReadLine();
-                switch (raceStatModifier.ToUpper()) {
-                    case "STR":
-                        strMod += 2;
-                        break;
-                    case "DEX":
-                        dexMod += 2;
-                        break;
-                    case "CON":
-                        conMod += 2;
-                        break;
-                    case "INT":
-                        intMod += 2;
-                        break;
-                    case "WIS":
-                        wisMod += 2;
-                        break;
-                    case "CHA":
-                        chaMod += 2;
-                        break;
-                }
-                moveSpeed = 30;
-
+                playerStatMods.Strength -= 2;
+                playerStatMods.Constitution += 2;
+                playerStatMods.Charisma += 2;
+                playerInfo.MoveSpeed = 20;
                 break;
             case "HALFLING":
-                strMod -= 2;
-                dexMod += 2;
-                chaMod += 2;
-                moveSpeed = 20;
+                playerStatMods.Strength -= 2;
+                playerStatMods.Dexterity += 2;
+                playerStatMods.Charisma += 2;
+                playerInfo.MoveSpeed = 20;
                 break;
+            case "HALFELF":
+            case "HALFORC":
             case "HUMAN":
                 Console.WriteLine("Please select a stat modifier from the following list:\nStr(ength)\nDex(terity)\nCon(stitution)\nInt(elligence)\nWis(dom)\nCha(risma)");
                 raceStatModifier = Console.ReadLine();
                 switch (raceStatModifier.ToUpper()) {
                     case "STR":
-                        strMod += 2;
+                        playerStatMods.Strength += 2;
                         break;
                     case "DEX":
-                        dexMod += 2;
+                        playerStatMods.Dexterity += 2;
                         break;
                     case "CON":
-                        conMod += 2;
+                        playerStatMods.Constitution += 2;
                         break;
                     case "INT":
-                        intMod += 2;
+                        playerStatMods.Intelligence += 2;
                         break;
                     case "WIS":
-                        wisMod += 2;
+                        playerStatMods.Wisdom += 2;
                         break;
                     case "CHA":
-                        chaMod += 2;
+                        playerStatMods.Charisma += 2;
                         break;
                 }
-                moveSpeed = 30;
+                playerInfo.MoveSpeed = 30;
 
                 break;
         }
 
         Console.Clear();
         Console.WriteLine("Please chooe your character's class from the following list:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
-        playerClass = Console.ReadLine();
-        switch (playerClass.ToUpper()) {
+        playerInfo.Class = Console.ReadLine();
+        switch (playerInfo.Class.ToUpper()) {
             case "BARBARIAN":
-                gp += Dice.Roll(6, 3) * 10;
-                health = 1 + Dice.Roll(12, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 3) * 10;
+                playerInfo.Health = 1 + Dice.Roll(12, 1, playerStatMods.Constitution);
                 break;
             case "BARD":
-                gp += Dice.Roll(6, 3) * 10;
-                health = 1 + Dice.Roll(8, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 3) * 10;
+                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "CLERIC":
-                gp += Dice.Roll(6, 4) * 10;
-                health = 1 + Dice.Roll(8, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 4) * 10;
+                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "DRUID":
-                gp += Dice.Roll(6, 2) * 10;
-                health = 1 + Dice.Roll(8, 1, conMod)    ;
+                playerWallet.GP += Dice.Roll(6, 2) * 10;
+                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution)    ;
                 break;
             case "FIGHTER":
-                gp += Dice.Roll(6, 5) * 10;
-                health = 1 + Dice.Roll(10, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 5) * 10;
+                playerInfo.Health = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
                 break;
             case "MONK":
-                gp += Dice.Roll(6, 1) * 10;
-                health = 1 + Dice.Roll(8, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 1) * 10;
+                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "PALADIN":
-                gp += Dice.Roll(6, 5) * 10;
-                health = 1 + Dice.Roll(10, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 5) * 10;
+                playerInfo.Health = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
                 break;
             case "RANGER":
-                gp += Dice.Roll(6, 5) * 10;
-                health = 1 + Dice.Roll(10, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 5) * 10;
+                playerInfo.Health = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
                 break;
             case "ROGUE":
-                gp += Dice.Roll(6, 4) * 10;
-                health = 1 + Dice.Roll(8, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 4) * 10;
+                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "SORCERER":
-                gp += Dice.Roll(6, 2) * 10;
-                health = 1 + Dice.Roll(6, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 2) * 10;
+                playerInfo.Health = 1 + Dice.Roll(6, 1, playerStatMods.Constitution);
                 break;
             case "WIZARD":
-                gp += Dice.Roll(6, 2) * 10;
-                health = 1 + Dice.Roll(6, 1, conMod);
+                playerWallet.GP += Dice.Roll(6, 2) * 10;
+                playerInfo.Health = 1 + Dice.Roll(6, 1, playerStatMods.Constitution);
                 break;
         }
 
-        player = new Player(firstName, lastName, playerRace, playerClass, 0, 0, cp, sp, gp, pp, moveSpeed, health, strMod, dexMod, conMod, intMod, wisMod, chaMod, 0, 0, 0, 0, 0, 0, []);
+
+        player = new Player(playerInfo, playerWallet, playerStats, playerStatMods, inventory);
 
         PlayerDataManager.RegisterPlayer(player);
 

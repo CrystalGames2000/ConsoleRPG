@@ -1,6 +1,4 @@
-﻿public class Consumable: Item
+﻿public class Consumable
 {
-    public int? InventoryId { get; set; }
-    public int? Amount { get; set; }
-    public int MaxCapacity { get; set; }
+
 }

@@ -1,7 +1,11 @@
 ﻿public class Inventory
 {
     int lastItemId = 0;
-    Item[]? inventory;
+    List<Item> inventory;
+
+    public Inventory() {
+        inventory = new List<Item>();
+    }
 
     void AddItem(Item item) {
         inventory.Append(item);
@@ -11,9 +15,5 @@
 
     public void RemoveItem(int itemId) {
         inventory[itemId] = null;
-    }
-
-    public Item GetItemById(int itemId) {
-        return inventory[itemId];
     }
 }
