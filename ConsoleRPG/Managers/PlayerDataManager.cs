@@ -1,83 +1,16 @@
-﻿public class Game
+﻿public class PlayerDataManager
 {
-    static bool skipIntro = true;
-    static bool skipRegister = false;
-
     static string raceStatModifier = "";
-    static string saveSlot = "";
-    static string newGame = "";
-
-    static Player? player;
 
     static PlayerInfo playerInfo;
     static EntityWallet playerWallet;
     static EntityStats playerStats;
     static EntityStatModifiers playerStatMods;
     static List<Item> inventory;
-    
 
+    public static Player? player;
 
-    public static void Main(string[] args) {
-        Startup();
-
-        Console.Read();
-    }
-
-    static void Startup() {
-        Console.Title = "CrystalGames' ConsoleRPG";
-        if (!skipIntro) StartIntro();
-
-        if (!skipRegister) RegisterCharacter();
-
-    }
-
-    static void StartIntro() {
-        Console.WriteLine("Getting Things Ready...");
-        Thread.Sleep(1000);
-        Console.WriteLine("Processing Data...");
-        Thread.Sleep(1500);
-        Console.WriteLine("Finishing Things Up...");
-        Thread.Sleep(1750);
-        Console.Clear();
-        #region Logo
-        Console.WriteLine("=======================================================================");
-        Thread.Sleep(350);
-        Console.WriteLine("\r _____                _        _ _____                           \r");
-        Thread.Sleep(350);
-        Console.WriteLine("/  __ \\              | |      | |  __ \\                          \r");
-        Thread.Sleep(350);
-        Console.WriteLine("| /  \\/_ __ _   _ ___| |_ __ _| | |  \\/ __ _ _ __ ___   ___  ___ \r");
-        Thread.Sleep(350);
-        Console.WriteLine("| |   | '__| | | / __| __/ _` | | | __ / _` | '_ ` _ \\ / _ \\/ __|\r");
-        Thread.Sleep(350);
-        Console.WriteLine("| \\__/\\ |  | |_| \\__ \\ || (_| | | |_\\ \\ (_| | | | | | |  __/\\__ \\\r");
-        Thread.Sleep(350);
-        Console.WriteLine(" \\____/_|   \\__, |___/\\__\\__,_|_|\\____/\\__,_|_| |_| |_|\\___||___/\r");
-        Thread.Sleep(350);
-        Console.WriteLine("             __/ |                                               \r");
-        Thread.Sleep(350);
-        Console.WriteLine("            |___/                                                \r");
-        Thread.Sleep(350);
-        Console.WriteLine(" _____                       _     ____________ _____            \r");
-        Thread.Sleep(350);
-        Console.WriteLine("/  __ \\                     | |    | ___ \\ ___ \\  __ \\           \r");
-        Thread.Sleep(350);
-        Console.WriteLine("| /  \\/ ___  _ __  ___  ___ | | ___| |_/ / |_/ / |  \\/           \r");
-        Thread.Sleep(350);
-        Console.WriteLine("| |    / _ \\| '_ \\/ __|/ _ \\| |/ _ \\    /|  __/| | __            \r");
-        Thread.Sleep(350);
-        Console.WriteLine("| \\__/\\ (_) | | | \\__ \\ (_) | |  __/ |\\ \\| |   | |_\\ \\           \r");
-        Thread.Sleep(350);
-        Console.WriteLine(" \\____/\\___/|_| |_|___/\\___/|_|\\___\\_| \\_\\_|    \\____/           \r"); Thread.Sleep(350);
-        Console.WriteLine("=======================================================================");
-        Thread.Sleep(250);
-        Console.WriteLine("Press anything to continue");
-        Console.ReadKey();
-        Console.Clear();
-        #endregion
-    }
-
-    static void RegisterCharacter() {
+    public static Player RegisterCharacter() {
 
         Console.Clear();
         Console.WriteLine("Please choose your character's first name: ");
@@ -164,7 +97,7 @@
                 break;
             case "DRUID":
                 playerWallet.GP += Dice.Roll(6, 2) * 10;
-                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution)    ;
+                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "FIGHTER":
                 playerWallet.GP += Dice.Roll(6, 5) * 10;
@@ -194,13 +127,45 @@
                 playerWallet.GP += Dice.Roll(6, 2) * 10;
                 playerInfo.Health = 1 + Dice.Roll(6, 1, playerStatMods.Constitution);
                 break;
+            default:
+                Commands.CheckForCommand();
+                break;
         }
 
-
-        player = new Player(playerInfo, playerWallet, playerStats, playerStatMods, inventory);
-
-        PlayerDataManager.RegisterPlayer(player);
-
         Console.Clear();
+
+        return new Player(playerInfo, playerWallet, playerStats, playerStatMods, inventory);
+
+
+    }
+
+    public static void DisplayPlayerStats(Player player) {
+        Console.WriteLine("==============================");
+        Console.WriteLine("|First Name                : " + player.PlayerInfo.FirstName);
+        Console.WriteLine("|Last Name                 : " + player.PlayerInfo.LastName);
+        Console.WriteLine("|Race                      : " + player.PlayerInfo.Race);
+        Console.WriteLine("|Class                     : " + player.PlayerInfo.Class);
+        Console.WriteLine("|Level                     : " + player.PlayerInfo.Level);
+        Console.WriteLine("|Experience                : " + player.PlayerInfo.XP);
+        Console.WriteLine("|Copper                    : " + player.PlayerWallet.CP);
+        Console.WriteLine("|Silver                    : " + player.PlayerWallet.SP);
+        Console.WriteLine("|Gold                      : " + player.PlayerWallet.GP);
+        Console.WriteLine("|Platinum                  : " + player.PlayerWallet.PP);
+        Console.WriteLine("|Move Speed                : " + player.PlayerInfo.MoveSpeed);
+        Console.WriteLine("|Health                    : " + player.PlayerInfo.Health);
+        Console.WriteLine("|Strength Mod              : " + player.StatMods.Strength);
+        Console.WriteLine("|Dexterity Mod             : " + player.StatMods.Dexterity);
+        Console.WriteLine("|Constitution Mod          : " + player.StatMods.Constitution);
+        Console.WriteLine("|Intelligence Mod          : " + player.StatMods.Intelligence);
+        Console.WriteLine("|Wisdom Mod                : " + player.StatMods.Wisdom);
+        Console.WriteLine("|Charisma Mod              : " + player.StatMods.Charisma);
+        Console.WriteLine("|Strength                  : " + player.Stats.Strength);
+        Console.WriteLine("|Dexterity                 : " + player.Stats.Dexterity);
+        Console.WriteLine("|Constitution              : " + player.Stats.Constitution);
+        Console.WriteLine("|Intelligence              : " + player.Stats.Intelligence);
+        Console.WriteLine("|Wisdom                    : " + player.Stats.Wisdom);
+        Console.WriteLine("|Charisma                  : " + player.Stats.Charisma);
+        Console.WriteLine("==============================");
+
     }
 }
