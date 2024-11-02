@@ -1,12 +1,26 @@
 ﻿public class Spell
 {
+    public SpellInfo SpellInfo { get; set; }
     public SpellLevels ClassLevels { get; set; }
 
-    public Spell(SpellLevels classLevels) {
-        this.ClassLevels = classLevels;
+    public Spell(SpellInfo spellInfo,SpellLevels classLevels) {
+        SpellInfo = spellInfo;
+        ClassLevels = classLevels;
     }
 }
 
+public class SpellInfo
+{
+    public string Name { get; set; }
+    public string School { get; set; }
+    public string Description { get; set; }
+
+    public SpellInfo(string name, string school, string description) {
+        Name = name;
+        School = school;
+        Description = description;
+    }
+}
 public class SpellLevels
 {
     public int Barbarian { get; set; }

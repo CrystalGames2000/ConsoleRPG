@@ -1,12 +1,12 @@
 ﻿public class Player
 {
     public PlayerInfo PlayerInfo { get; set; }
-    public PlayerWallet PlayerWallet { get; set; }
-    public PlayerStats Stats {get; set;}
-    public PlayerStatMods StatsMods {get; set;}
+    public EntityWallet PlayerWallet { get; set; }
+    public EntityStats Stats {get; set;}
+    public EntityStatModifiers StatsMods {get; set;}
     public List<Item> Inventory    {get; set;}
 
-    public Player(PlayerInfo playerInfo, PlayerWallet playerWallet, PlayerStats stats, PlayerStatMods statsMods, List<Item> inventory) {
+    public Player(PlayerInfo playerInfo, EntityWallet playerWallet, EntityStats stats, EntityStatModifiers statsMods, List<Item> inventory) {
         PlayerInfo = playerInfo;
         PlayerWallet = playerWallet;
         Stats = stats;
@@ -34,55 +34,5 @@ public class PlayerInfo
         XP = xP;
         MoveSpeed = moveSpeed;
         Health = health;
-    }
-}
-public class PlayerWallet
-{
-    public int CP { get; set; }
-    public int SP { get; set; }
-    public int GP { get; set; }
-    public int PP { get; set; }
-
-    public PlayerWallet(int cp, int sp, int gp, int pp) {
-        CP = cp;
-        SP = sp;
-        GP = gp;
-        PP = pp;
-    }
-}
-public class PlayerStats
-{
-    public int Strength { get; set; }
-    public int Dexterity { get; set; }
-    public int Constitution { get; set; }
-    public int Intelligence { get; set; }
-    public int Wisdom { get; set; }
-    public int Charisma { get; set; }
-
-    public PlayerStats(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
-        Strength = strength;
-        Dexterity = dexterity;
-        Constitution = constitution;
-        Intelligence = intelligence;
-        Wisdom = wisdom;
-        Charisma = charisma;
-    }
-}
-public class PlayerStatMods
-{
-    public int Strength { get; set; }
-    public int Dexterity { get; set; }
-    public int Constitution { get; set; }
-    public int Intelligence { get; set; }
-    public int Wisdom { get; set; }
-    public int Charisma { get; set; }
-
-    public PlayerStatMods(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
-        Strength = strength;
-        Dexterity = dexterity;
-        Constitution = constitution;
-        Intelligence = intelligence;
-        Wisdom = wisdom;
-        Charisma = charisma;
     }
 }

@@ -9,11 +9,11 @@
 
     static Player? player;
 
-    static PlayerInfo? playerInfo;
-    static PlayerWallet? playerWallet;
-    static PlayerStats? playerStats;
-    static PlayerStatMods? playerStatMods;
-    static List<Item>? inventory;
+    static PlayerInfo playerInfo;
+    static EntityWallet playerWallet;
+    static EntityStats playerStats;
+    static EntityStatModifiers playerStatMods;
+    static List<Item> inventory;
     
 
 
