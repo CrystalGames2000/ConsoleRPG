@@ -3,9 +3,9 @@
     static string raceStatModifier = "";
 
     static PlayerInfo playerInfo;
-    static EntityWallet playerWallet;
     static EntityStats playerStats;
     static EntityStatModifiers playerStatMods;
+    static EntityWallet playerWallet;
     static List<Item> inventory;
 
     public static Player? player;
@@ -85,52 +85,54 @@
         switch (playerInfo.Class.ToUpper()) {
             case "BARBARIAN":
                 playerWallet.GP += Dice.Roll(6, 3) * 10;
-                playerInfo.Health = 1 + Dice.Roll(12, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(12, 1, playerStatMods.Constitution);
                 break;
             case "BARD":
                 playerWallet.GP += Dice.Roll(6, 3) * 10;
-                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "CLERIC":
                 playerWallet.GP += Dice.Roll(6, 4) * 10;
-                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "DRUID":
                 playerWallet.GP += Dice.Roll(6, 2) * 10;
-                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "FIGHTER":
                 playerWallet.GP += Dice.Roll(6, 5) * 10;
-                playerInfo.Health = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
                 break;
             case "MONK":
                 playerWallet.GP += Dice.Roll(6, 1) * 10;
-                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "PALADIN":
                 playerWallet.GP += Dice.Roll(6, 5) * 10;
-                playerInfo.Health = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
                 break;
             case "RANGER":
                 playerWallet.GP += Dice.Roll(6, 5) * 10;
-                playerInfo.Health = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(10, 1, playerStatMods.Constitution);
                 break;
             case "ROGUE":
                 playerWallet.GP += Dice.Roll(6, 4) * 10;
-                playerInfo.Health = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(8, 1, playerStatMods.Constitution);
                 break;
             case "SORCERER":
                 playerWallet.GP += Dice.Roll(6, 2) * 10;
-                playerInfo.Health = 1 + Dice.Roll(6, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(6, 1, playerStatMods.Constitution);
                 break;
             case "WIZARD":
                 playerWallet.GP += Dice.Roll(6, 2) * 10;
-                playerInfo.Health = 1 + Dice.Roll(6, 1, playerStatMods.Constitution);
+                playerInfo.MaxHP = 1 + Dice.Roll(6, 1, playerStatMods.Constitution);
                 break;
             default:
                 Commands.CheckForCommand();
                 break;
         }
+
+        playerInfo.Health = playerInfo.MaxHP;
 
         Console.Clear();
 
