@@ -13,9 +13,12 @@
 
     static void Startup() {
         Console.Title = "CrystalGames' ConsoleRPG";
-        if (!skipIntro) StartIntro();
+        if (!skipIntro)StartIntro();
 
-        if (!skipRegister) player = PlayerDataManager.RegisterCharacter();
+        if (!skipRegister) {
+            player = new Player(null, null, null, null, null);
+            PlayerDataManager.RegisterCharacter(player);
+        }
 
     }
 

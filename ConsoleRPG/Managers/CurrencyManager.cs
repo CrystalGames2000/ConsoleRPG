@@ -6,7 +6,6 @@
         else if (currency == Currencies.gold) return amount * 100;
         else if (currency == Currencies.platinum) return amount * 1000;
         else return 0;
-
     }
     public static double ConvertToSP(Currency currency, double amount) {
         if (currency == Currencies.copper) return amount * 0.1;
