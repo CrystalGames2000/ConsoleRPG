@@ -1,7 +1,7 @@
 ﻿public class Game
 {
-    static bool skipIntro = true;
-    static bool skipRegister = false;
+    static bool skipIntro = false;
+    static bool skipRegister = true;
 
     static Player? player;
 
@@ -19,6 +19,8 @@
             player = new Player(null, null, null, null, null);
             PlayerDataManager.RegisterCharacter(player);
         }
+
+
 
     }
 

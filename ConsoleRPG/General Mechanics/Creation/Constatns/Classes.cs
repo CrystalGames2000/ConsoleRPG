@@ -1,5 +1,6 @@
 ﻿public enum Class
 {
+    PLACEHOLDER,
     Barbarian,
     Bard,
     Cleric,

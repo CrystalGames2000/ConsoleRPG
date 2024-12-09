@@ -1,5 +1,6 @@
 ﻿public enum Race
 {
+    PLACEHOLDER,
     Dwarf,
     Elf,
     Gnome,
